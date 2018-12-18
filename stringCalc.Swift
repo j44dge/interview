@@ -118,7 +118,7 @@ func Add3( numbers: String ) throws -> Int
    //Throw exception, showing the numbers that caused the exception
    if  negativeFound 
    {
-      throw Case4Error.NegativeFound(message: "Exception: These negative numbers were found \(negativeArray)" )
+      throw Case4Error.NegativeFound(message: "Negatives not allowed. These negative numbers were found \(negativeArray)" )
    }
    
     return sum
@@ -141,12 +141,12 @@ print ( Add( numbers: "1\n,6,\n6\n,2" ) ) //Should be 15
 
 print ("Tests for Question 3" )
 print ( Add2( numbers: "//$\n1$2$3" ) ) //Should be 6
-print ( Add2( numbers: "//@\n2@3@8" ) ) //Should be 13
+print ( Add2( numbers: "//!\n2!4!8!3\n!3" ) ) //Should be 20
 print ( Add2( numbers: "//@\n2@3@8" ) ) //Should be 13
 print ( Add2( numbers: "//*\n5*4\n*8\n*2" ) ) //Should be 19 (trying with new line character also, which should be ignored)
 
 print ("Tests for Question 4" )
 print ( try Add3( numbers: "//$\n1$2$3$5" ) ) //Should be 11
-print ( try Add3( numbers: "//$\n4$5$7$-9" ) ) //Exception [-9]
+//print ( try Add3( numbers: "//$\n4$5$7$-9" ) ) //Exception [-9] //Commented out due to exception
 print ( try Add3( numbers: "//@\n4@5@7@100@" ) ) //Should be 116
 print ( try Add3( numbers: "//x\n600x1100x500x700x1000" ) ) //Should be 2800, 1100 is ignored
